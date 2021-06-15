@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<title>Lucky Number</title>
+	<style>
+		body {
+  text-align: center;
+  background-color: skyblue;
+}
+
+h1 {
+  background-color: red;
+  color: white;
+}
+	</style>
+<head>
+</head>
+<body>
+<h1>Lucky Number</h1>
+<p>Dự đoán con số của bạn trong khoảng từ 1 - 10</p>
+<div class="input">
+  <input type="number" name="" id="number" placeholder="Nhập số">
+  <button id="submit">Quay số</button>
+  
+</div>
+<script>
+const inputNumber = document.getElementById("number");
+const btn = document.getElementById("submit");
+let randomNum = Math.floor(Math.random() * 10) + 1; 
+let attempts = 0;
+btn.onclick = function(e) {
+  if (parseInt(inputNumber.value) !== randomNum) {
+    attempts++;
+    if (attempts >= 3) {
+      alert(`Game over, the number is ${randomNum}`);
+    } else {
+      alert("Wrong! Try again");
+      return;
+    }
+  } else {
+    alert("Congratulation! You win");
+  }
+  attempts = 0;
+  randomNum = Math.floor(Math.random() * 10) + 1;
+}
+</script>
+
+</body>
+</html>
